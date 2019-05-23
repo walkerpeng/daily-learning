@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.walker.kafkademo.mapper.UserInfoMapper" >
+
+    <resultMap id="BaseResultMap" type="me.walker.kafkademo.model.UserInfo" >
+        <id column="tbl_id" property="tbl_id" jdbcType="BIGINT" />
+        <result column="owner" property="owner" jdbcType="VARCHAR" />
+        <result column="tbl_name" property="tbl_name" jdbcType="VARCHAR" />
+        <result column="tbl_type" property="tbl_type" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        tbl_id,owner,tbl_name,tbl_type
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tbls
+    </select>
+
+</mapper>
